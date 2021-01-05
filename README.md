@@ -1,4 +1,4 @@
-# Instynct Blueprint 2.6 [Webpack]
+# Wordpress Starter Pack 2.7 [Webpack]
 
 **_Theme Wordpress_**
 

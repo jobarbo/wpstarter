@@ -9,7 +9,7 @@ get_header(); ?>
 <section id="home-about">
     <div class="container">
         <div class="history">
-            <h1 class="history__title">Instynct Blueprint V2.6</h1>
+            <h1 class="history__title">Wordpress Starter Pack 2.7</h1>
         </div>
         <div class="client">
             <ul class="client__list">

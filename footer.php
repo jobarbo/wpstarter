@@ -9,7 +9,7 @@ $copyright = get_field('copyright', 'options');
             <div class="footer__logo"><img src="<?= $footerLogo['url'] ?>" alt="<?= $footerLogo['title'] ?>"></div>
         </div>
         <div class="footer__copyright">
-            <p><?= $copyright ?> <a href="https://instynctweb.com/">Instynct</a></p>
+            <p></p>
         </div>
     </div>
 </footer>

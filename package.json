@@ -1,13 +1,13 @@
 {
-	"name": "instynct-blueprint",
-	"description": "A starter-kit for internal",
-	"version": "2.6.0",
-	"author": "Instynct",
-	"authorURI": "http://instynctweb.com/",
+	"name": "Vanilla Wordpress Starting Pack",
+	"description": "A starter-kit for work",
+	"version": "2.7.0",
+	"author": "Jonathan Barbeau",
+	"authorURI": "https://github.com/jobarbo/",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git:https://github.com/instynct-solutions-web/Blueprint.git"
+		"url": "git:https://github.com/jobarbo/wpstarter"
 	},
 	"keywords": [
 		"wordpress",
