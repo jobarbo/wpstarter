@@ -11,7 +11,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<?php get_template_part('modules/md-preloader'); ?>
+
 
 	<div class="cursor" data-cursor-container>
 		<div class="cursor__ball cursor__ball--small" data-cursor-pointer>
