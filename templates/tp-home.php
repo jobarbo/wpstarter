@@ -49,14 +49,4 @@ get_header(); ?>
 </section>
 
 
-<?php $wysiwyg = get_field('wysiwyg') ?>
-<section data-wolfpack-section class="styleguide__wysiwyg" style="background-color: #d8d8c8;">
-    <div class="styleguide__container styleguide__container--black">
-        <h2 class="styleguide__wysiwyg-title">Section Wysiwyg (avec classe)</h2>
-    </div>
-    <div class="styleguide__container ">
-        <?= $wysiwyg ?>
-    </div>
-</section>
-
 <?php get_footer(); ?>
