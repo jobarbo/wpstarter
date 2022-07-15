@@ -13,7 +13,6 @@ include('inc/configure.php');
 include('inc/js-css.php');
 
 // ACF
-
 include('inc/acf.php');
 
 // HOOKS ADMIN
@@ -21,8 +20,6 @@ include('inc/acf.php');
 // Custom login styles
 require_once('inc/login-css.php');
 
-// ACF options in admin
-require_once('inc/acf/acf-option-page.php');
 
 // CUSTOM POST TYPES
 // require_once('inc/custom-post-types.php');

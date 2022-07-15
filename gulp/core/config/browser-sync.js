@@ -1,5 +1,5 @@
 // utils
-const deepMerge = require('../utils/deepMerge');
+var deepMerge = require('../utils/deepMerge');
 
 /**
  * BrowserSync
@@ -8,7 +8,7 @@ const deepMerge = require('../utils/deepMerge');
  *
  */
 module.exports = deepMerge({
-	proxy: 'blueprint.local',
-	host: 'blueprint.local',
-	open: 'external',
+		logSnippet: false,
+		ghostMode: false,
+		open: false
 });

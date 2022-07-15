@@ -19,7 +19,10 @@ function register_my_menus() {
 
 function remove_editor() {
 	remove_post_type_support('page', 'editor');
+	remove_post_type_support('post', 'editor');
 }
+
+
 // add SVG to allowed file uploads
 function add_file_types_to_uploads($mime_types) {
 	$mime_types['svg'] = 'image/svg+xml';

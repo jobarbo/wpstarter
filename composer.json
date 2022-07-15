@@ -1,5 +1,5 @@
 {
-	"name": "Wordpress Starter Pack",
-	"description": "Blueprint Theme with Gulp and Webpack",
+	"name": "Wordpress Starter Theme",
+	"description": "Wordpress Starter Theme with Gulp and Webpack",
 	"type": "wordpress-theme"
 }

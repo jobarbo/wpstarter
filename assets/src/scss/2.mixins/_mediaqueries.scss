@@ -2,6 +2,7 @@
 // MIXINS - Media queries
 // ==========================================================================
 
+@use 'sass:math';
 @mixin screen($minmax: max, $width: rem(1024)) {
 	@media only screen and (#{$minmax}-width: $width) {
 		@content;
@@ -51,7 +52,7 @@
 }
 
 @mixin mobile-only {
-	@media only screen and (max-width: #{ ($mobile-threshold - 1) / $function-size-default }rem) {
+	@media only screen and (max-width: #{ math.div(($mobile-threshold - 1) , $function-size-default) }rem) {
 		@content;
 	}
 }
