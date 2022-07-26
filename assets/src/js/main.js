@@ -1,16 +1,15 @@
-import '@babel/polyfill';
-
-import Scripts from './_generalScripts';
-
+/* eslint-disable */
+import CalculateHeight from './helpers/_calculateHeight';
+import Wolfpack from './libraries/_wolfpack';
 const App = {
 	/**
 	 * App.init
 	 */
 	init() {
-		// General scripts
-		const scripts = new Scripts('Hello World');
-
-		scripts.init();
+		// Utils Scripts
+		//const calculateHeight = new CalculateHeight();
+		//// Wolfpack Scripts
+		//const wolfpack = new Wolfpack();
 	},
 };
 

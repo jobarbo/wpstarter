@@ -3,8 +3,7 @@
     CUSTOM POST TYPES
 \*------------------------------------*/
 
-function create_post_type()
-{
+function create_post_type() {
 
 
     // RETAILERS
@@ -34,7 +33,7 @@ function create_post_type()
                 'editor'
             ),
             'rewrite' => array(
-                'slug' => 'CPT'
+                'slug' => 'cpt-template'
             ),
             'can_export' => true,
             'taxonomies' => array('cpt-template', 'category'),

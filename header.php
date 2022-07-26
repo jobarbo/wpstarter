@@ -4,17 +4,12 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://use.typekit.net/gci6icf.css">
-
-	<!-- Check is the page is the IE template-->
-	<?php if (!is_page('internet-explorer')) { ?>
-		<script src="<?php bloginfo('template_url') ?>/assets/src/js/internet-explorer.js"></script>
-	<?php } ?>
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+
 	<div class="page-wrapper">
 		<header class="header">
 
