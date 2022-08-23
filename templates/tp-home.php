@@ -97,8 +97,7 @@ get_header(); ?>
 <section class="wysiwyf-form">
     <!-- make a form that will take an html file -->
     <form class="wysiwyf" action="tp-home.php" method="post">
-        <!-- make a file field that will take an html file -->
-        <input type="file" data-html-upload name="htmlFile" placeholder="HTML file">
+
 
         <!-- make a form input that will take the preparation time -->
         <input type="text" data-preparation name="preparationTime" placeholder="Preparation time">
@@ -194,6 +193,28 @@ get_header(); ?>
         newStep.setAttribute("name", "preparationParagraph");
         newStep.setAttribute("placeholder", "Preparation paragraph item");
         preparation.parentNode.insertBefore(newStep, preparation.nextSibling);
+    }
+    // make a script that will take the html content of data-html to a new text file and will open the text file in the browser
+    var submit = document.querySelector('[data-submit]');
+    submit.addEventListener('click', function() {
+        //prevent the default action of the submit button
+        event.preventDefault();
+        var html = document.querySelector('[data-html]').innerHTML;
+        var blob = new Blob([html], {
+            type: "text/plain;charset=utf-8"
+        });
+        saveAs(blob, "recipe.html");
+    });
+
+    function saveAs(blob, fileName) {
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        link.click();
+        setTimeout(function() {
+            URL.revokeObjectURL(url);
+        }, 100);
     }
 </script>
 
