@@ -5,7 +5,43 @@ Template Name: Accueil
 
 // Load header.php
 get_header(); ?>
+
 <section data-html class="wysiwyg-content">
+    <script type="application/ld+json">
+        let json = {
+            "@context": "https://schema.org",
+            "@type": "Recipe",
+            "author": "Jonathan Barbeau",
+            "cookTime": "PT10M",
+            "prepTime": "PT20M",
+            "totalTime": "PT30M",
+            "datePublished": "2009-05-08",
+            "image": "bananabread.jpg",
+            "name": "Recette de poulet",
+            "recipeIngredient": [
+                "3 or 4 ripe bananas, smashed",
+                "1 egg",
+                "3/4 cup of sugar"
+            ],
+            "step": [{
+                "@type": "HowToSection",
+                "name": "Etapes de preparations",
+                "position": "1",
+                "itemListElement": [{
+                        "@type": "HowToStep",
+                        "position": "1",
+                        "text": "Ajouter les epices"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": "2",
+                        "text": "Ajouter la viande"
+                    }
+                ]
+            }],
+            "recipeInstructions": "Preheat the oven to 350 degrees. Mix in the ingredients in a bowl. Add the flour last. Pour the mixture into a loaf pan and bake for one hour."
+        }
+    </script>
     <!-- Présentation du résumé de la recette -->
     <div class="recipe-content__overview">
         <ul class="recipe-content__overview-list">
@@ -41,51 +77,19 @@ get_header(); ?>
             <!-- Titre Section Ingredients -->
             <h2 data-ingredients-title-html class="recipe-content__ingredients-title">Ingrédients</h2>
             <!-- Liste des ingrédients -->
-            <ul class="recipe-content__ingredients-list">
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">1 cuillère </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">à soupe de vinaigre balsamique bio</p>
-                </li>
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">1/2 tasse </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">de confiture de figue bio</p>
-                </li>
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">1 oignon </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">blanc</p>
-                </li>
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">1 cuillère </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">à soupe de miel</p>
-                </li>
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">1 cuillère </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">à soupe de moutarde</p>
-                </li>
-                <li class="recipe-content__ingredients-item">
-                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span class="recipe-content__ingredients-item-quantity">4 cuisses </span> <!-- Nom de l'ingrédient -->
-                    <p class="recipe-content__ingredients-item-name">de poulets</p>
+            <ul data-ingredients-container class="recipe-content__ingredients-list">
+                <li data-ingredients-item-html class="recipe-content__ingredients-item">
+                    <!-- Quantité de l'ingrédient (va etre mis en emphase) --> <span data-ingredients-qty-html class="recipe-content__ingredients-item-quantity">1 cuillère </span> <!-- Nom de l'ingrédient -->
+                    <p data-ingredients-name-html class="recipe-content__ingredients-item-name">à soupe de vinaigre balsamique bio</p>
                 </li>
             </ul>
         </div>
         <!-- Contenu texte pour la préparation de la recette -->
         <div class="recipe-content__preparation">
-            <h2 class="recipe-content__preparation-title">Préparation</h2>
-            <ul class="recipe-content__preparation-list">
-                <li class="recipe-content__preparation-item">
-                    <p>Dans un premier temps, préchauffer le four à 190 degrés et allumer votre barbecue pour les cuisses de poulets.</p>
-                </li>
-                <li class="recipe-content__preparation-item">
-                    <p>Dans un bol, mélanger la confiture de figue avec le miel, rajouter la moutarde et le vinaigre balsamique.</p>
-                </li>
-                <li class="recipe-content__preparation-item">
-                    <p>Étaler du papier parchemin dans un plat allant au four et étalez les oignons.</p>
-                </li>
-                <li class="recipe-content__preparation-item">
-                    <p>Mettez les cuisses de poulet à cuire sur votre barbecue chaud 10 min chaque côté.</p>
-                </li>
-                <li class="recipe-content__preparation-item">
-                    <p>Une fois le poulet cuit, verser le mélange de confiture sur le poulet de façon à bien le recouvrir.</p>
+            <h2 data-preparation-title-html class="recipe-content__preparation-title">Préparation</h2>
+            <ul data-preparation-container class="recipe-content__preparation-list">
+                <li data-preparation-step-html data-preparation-container class="recipe-content__preparation-item">
+                    <p data-preparation-paragraph-html class="recipe-content__preparation-text"></p>
                 </li>
             </ul>
         </div>
@@ -97,40 +101,40 @@ get_header(); ?>
 
 
         <!-- make a form input that will take the preparation time -->
-        <input type="text" data-preparation name="preparationTime" placeholder="Preparation time">
+        <input type="text" data-preparation name="preparationTime" placeholder="Le temps de preparation">
         <!-- make a form input that will take the cooking time -->
-        <input type="text" data-cooking name="cookingTime" placeholder="Cooking time">
+        <input type="text" data-cooking name="cookingTime" placeholder="Le temps de cuisson">
         <!-- make a form input that will take the numbers of servings -->
-        <input type="text" data-servings name="servings" placeholder="Servings">
+        <input type="text" data-servings name="servings" placeholder="Le nombre de portions">
 
 
         <!-- make a form input that will take the introduction title -->
-        <input type="text" data-introduction-title name="introductionTitle" placeholder="Introduction title">
+        <input type="text" data-introduction-title name="introductionTitle" placeholder="Le titre de la section Introduction">
         <!-- make a form input that will take the introduction paragraph -->
-        <input type="text" data-introduction-paragraph="0" name="introductionParagraph" placeholder="Introduction paragraph item">
+        <input type="text" data-introduction-paragraph="0" name="introductionParagraph" placeholder="Modifier le paragraphe">
         <!-- make a input button that will add another paragraph to the introduction paragraph-->
         <input type="button" value="Add another paragraph to the introduction" data-add-introduction-paragraph onclick="addIntroParagraph()">
 
 
         <!-- make a form input that will take the ingredients title -->
-        <input type="text" data-ingredients-title name="ingredientsTitle" placeholder="Ingredients title">
+        <input type="text" data-ingredients-title name="ingredientsTitle" placeholder="Le titre de la section ingrédients">
         <!-- make a fieldset that will group the ingredients quantity and name -->
-        <fieldset data-ingredients-fieldset name="ingredients">
+        <fieldset data-ingredients-fieldset="0" name="ingredients">
             <!-- make a form input that will take the ingredients quantity -->
-            <input data-ingredients-qty type="text" name="ingredientsQuantity" placeholder="Ingredients quantity">
+            <input data-ingredients-qty="0" type="text" name="ingredientsQuantity" placeholder="La quantité d'ingredients">
             <!-- make a form input that will take the ingredients name -->
-            <input data-ingredients-name type="text" name="ingredientsName" placeholder="Ingredients name">
+            <input data-ingredients-name="0" type="text" name="ingredientsName" placeholder="Le nom et la description">
         </fieldset>
         <!-- make a form button that will add another quantity and name to the Ingredients list-->
-        <input type="button" value="Add another ingredient" onclick="addIngredient()">
+        <input type="button" data-add-ingredients value="Add another ingredient" onclick="addIngredient()">
 
 
         <!-- make a form input that will take the preparation title -->
-        <input type="text" data-preparation-title name="preparationTitle" placeholder="Preparation title">
+        <input type="text" data-preparation-title name="preparationTitle" placeholder="Modifier le titre de la section preparation">
         <!-- make a form input that will take the preparation item paragraph -->
-        <input data-preparation-paragraph type="text" name="preparationParagraph" placeholder="Preparation paragraph item">
+        <input type="text" data-preparation-step='0' name="preparationStep-0" placeholder="Etape de preparation">
         <!-- make a form button that will add another item to the preparation list -->
-        <input type="button" value="Add another step" onclick="addPreparationStep()">
+        <input data-add-preparation-paragraph type="button" value="Add another step" onclick="addPreparationStep()">
 
         <!-- make a submit button -->
         <input data-submit type="submit" value="Envoyer">
@@ -139,6 +143,7 @@ get_header(); ?>
 
 
 <script>
+    // PREPARATION CUISSON ET PORTIONS
     // make a script that will take the input value of the preparation time, cooking time and total servings. Then it will update the value of data-preparation-html with the value of the input
     var preparationTime = document.querySelector('input[data-preparation]');
     var cookingTime = document.querySelector('input[data-cooking]');
@@ -156,6 +161,7 @@ get_header(); ?>
         servingsHtml.innerHTML = servings.value;
     });
 
+    // INTRODUCTION
     // make a script that will take the input value of the introduction title and introduction paragraph. Then it will update the value of data-introduction-html with the value of the input
     var introductionTitle = document.querySelector('input[data-introduction-title]');
     var introTitleHtml = document.querySelector('[data-intro-title-html]');
@@ -163,8 +169,7 @@ get_header(); ?>
         introTitleHtml.innerHTML = introductionTitle.value;
     });
 
-
-
+    // LISTE DE PARAGRAPHE DANS L'INTRODUCTION
     var introductionParagraphInputArr = document.querySelectorAll('[data-introduction-paragraph]');
     var introParagraphHtmlArr = document.querySelectorAll('[data-intro-paragraph-html]');
     var addParagraphButton = document.querySelector('[data-add-introduction-paragraph]');
@@ -175,18 +180,16 @@ get_header(); ?>
     });
 
     // add an event listener that will be triggered when the DOM inside the introductionParagraphContainer is modified
-
-
     function updateIntroParagraph(introductionParagraphInputArr, introParagraphHtmlArr) {
         introParagraphHtmlArr = document.querySelectorAll('[data-intro-paragraph-html]');
         introductionParagraphInputArr.forEach(function(introductionParagraphInput, index) {
             introductionParagraphInput.addEventListener('input', function() {
-                console.log(introductionParagraphInput)
                 introParagraphHtmlArr[index].innerHTML = introductionParagraphInput.value;
             });
         });
     }
 
+    // LISTE DES INGREDIENTS
     // make a script that will take the input value of the ingredients title and ingredients quantity and name. Then it will update the value of data-ingredients-html with the value of the input
     var ingredientsTitle = document.querySelector('input[data-ingredients-title]');
     var ingredientsTitleHtml = document.querySelector('[data-ingredients-title-html]');
@@ -194,11 +197,81 @@ get_header(); ?>
         ingredientsTitleHtml.innerHTML = ingredientsTitle.value;
     });
 
+    var ingredientsFieldsetInputArr = document.querySelectorAll('fieldset[data-ingredients-fieldset]');
+    var ingredientsQuantityInputArr = document.querySelectorAll('input[data-ingredients-qty]');
+    var ingredientsNameInputArr = document.querySelectorAll('input[data-ingredients-name]');
+    var ingredientsQuantityHtmlArr = document.querySelectorAll('[data-ingredients-qty-html]');
+    var ingredientsNameHtmlArr = document.querySelectorAll('[data-ingredients-name-html]');
+
+    updateIngredients(ingredientsFieldsetInputArr, ingredientsQuantityInputArr, ingredientsNameInputArr, ingredientsQuantityHtmlArr, ingredientsNameHtmlArr);
+
+    var addIngredientButton = document.querySelector('[data-add-ingredients]');
+    addIngredientButton.addEventListener('click', function() {
+        ingredientsFieldsetInputArr = document.querySelectorAll('fieldset[data-ingredients-fieldset]');
+        ingredientsQuantityInputArr = document.querySelectorAll('input[data-ingredients-qty]');
+        ingredientsNameInputArr = document.querySelectorAll('input[data-ingredients-name]');
+        ingredientsQuantityHtmlArr = document.querySelectorAll('[data-ingredients-qty-html]');
+        ingredientsNameHtmlArr = document.querySelectorAll('[data-ingredients-name-html]');
+        updateIngredients(ingredientsFieldsetInputArr, ingredientsQuantityInputArr, ingredientsNameInputArr, ingredientsQuantityHtmlArr, ingredientsNameHtmlArr);
+    });
+
+    function updateIngredients(ingredientsFieldsetInputArr, ingredientsQuantityInputArr, ingredientsNameInputArr, ingredientsQuantityHtmlArr, ingredientsNameHtmlArr) {
+        ingredientsQuantityHtmlArr = document.querySelectorAll('[data-ingredients-qty-html]');
+        ingredientsNameHtmlArr = document.querySelectorAll('[data-ingredients-name-html]');
+        ingredientsQuantityInputArr.forEach(function(ingredientsQuantityInput, index) {
+            ingredientsQuantityInput.addEventListener('input', function() {
+                ingredientsQuantityHtmlArr[index].innerHTML = ingredientsQuantityInputArr[index].value;
+                ingredientsNameHtmlArr[index].innerHTML = ingredientsNameInputArr[index].value;
+            });
+        });
+        ingredientsNameInputArr.forEach(function(ingredientsNameInput, index) {
+            ingredientsNameInput.addEventListener('input', function() {
+                ingredientsQuantityHtmlArr[index].innerHTML = ingredientsQuantityInputArr[index].value;
+                ingredientsNameHtmlArr[index].innerHTML = ingredientsNameInputArr[index].value;
+            });
+        });
+
+    }
+
+    // TITRE DE LA SECTION PREPARATION
+    // make a script that will take the input value of the preparation title and preparation paragraph. Then it will update the value of data-preparation-html with the value of the input
+    var preparationTitle = document.querySelector('input[data-preparation-title]');
+    var preparationTitleHtml = document.querySelector('[data-preparation-title-html]');
+    preparationTitle.addEventListener('input', function() {
+        preparationTitleHtml.innerHTML = preparationTitle.value;
+    });
+
+    // LISTE DE PARAGRAPHE DANS LA SECTION PREPARATION
+    var preparationParagraphInputArr = document.querySelectorAll('[data-preparation-step]');
+    var preparationParagraphHtmlArr = document.querySelectorAll('[data-preparation-step-html]');
+    console.log(preparationParagraphInputArr);
+    var addPreparationParagraphButton = document.querySelector('[data-add-preparation-paragraph]');
+    updatePreparationParagraph(preparationParagraphInputArr, preparationParagraphHtmlArr);
+    addPreparationParagraphButton.addEventListener('click', function() {
+        preparationParagraphInputArr = document.querySelectorAll('input[ddata-preparation-step]');
+        updatePreparationParagraph(preparationParagraphInputArr, preparationParagraphHtmlArr);
+    });
+
+    function updatePreparationParagraph(preparationParagraphInputArr, preparationParagraphHtmlArr) {
+        preparationParagraphHtmlArr = document.querySelectorAll('[data-preparation-step-html]');
+        preparationParagraphInputArr = document.querySelectorAll('[data-preparation-step]');
+        console.log(preparationParagraphHtmlArr);
+        preparationParagraphInputArr.forEach(function(preparationParagraphInput, index) {
+            preparationParagraphInput.addEventListener('input', function() {
+                console.log(preparationParagraphHtmlArr)
+                preparationParagraphHtmlArr[index].innerHTML = preparationParagraphInput.value;
+            });
+        });
+    }
+
+
 
     let introParagraphNum = 0;
     //make a script that will add another input to the introduction paragraph
     function addIntroParagraph() {
+
         var introParagraph = document.querySelectorAll("[data-introduction-paragraph]")[introParagraphNum];
+        console.log(introParagraph);
         var newParagraph = document.createElement("input");
         introParagraphNum += 1;
         newParagraph.setAttribute("type", "text");
@@ -215,31 +288,72 @@ get_header(); ?>
         introParagraphContainer.appendChild(newParagraphHtml);
 
     }
+    let ingredientNum = 0;
+    let quantityNum = 0;
+    let nameNum = 0;
     //make a script that will add another input fieldset after the previous one
     function addIngredient() {
-        var ingredients = document.getElementsByName("ingredients")[0];
+        var ingredients = document.querySelectorAll("[data-ingredients-fieldset]")[ingredientNum];
         var newFieldset = document.createElement("fieldset");
-        newFieldset.setAttribute("name", "ingredients");
+        ingredientNum += 1;
+        newFieldset.setAttribute("name", `ingredients-${ingredientNum}`);
+        newFieldset.setAttribute("data-ingredients-fieldset", `${ingredientNum}`);
         var newQuantity = document.createElement("input");
+        quantityNum += 1;
         newQuantity.setAttribute("type", "text");
-        newQuantity.setAttribute("name", "ingredientsQuantity");
-        newQuantity.setAttribute("placeholder", "Ingredients quantity");
+        newQuantity.setAttribute("name", `ingredientsQuantity-${quantityNum}`);
+        newQuantity.setAttribute("placeholder", "La quantité d'ingredients");
+        newQuantity.setAttribute("data-ingredients-qty", `${quantityNum}`);
         var newName = document.createElement("input");
+        nameNum += 1;
         newName.setAttribute("type", "text");
-        newName.setAttribute("name", "ingredientsName");
-        newName.setAttribute("placeholder", "Ingredients name");
+        newName.setAttribute("name", ` ingredientsName-${nameNum}`);
+        newName.setAttribute("placeholder", "Le nom et la description");
+        newName.setAttribute("data-ingredients-name", `${nameNum}`);
         newFieldset.appendChild(newQuantity);
         newFieldset.appendChild(newName);
         ingredients.parentNode.insertBefore(newFieldset, ingredients.nextSibling);
+
+        //make a script that will add another <p data-ingredients-qty> to the div data-ingredients-container and update the value of data-ingredients-qty-html with the value of the input
+        var ingredientsContainer = document.querySelector('[data-ingredients-container]');
+        var newListItemHtml = document.createElement("li");
+        newListItemHtml.setAttribute("class", "recipe-content__ingredients-item");
+        newListItemHtml.setAttribute("data-ingredients-item-html", "");
+        ingredientsContainer.appendChild(newListItemHtml);
+        var newQuantityHtml = document.createElement("span");
+        newQuantityHtml.setAttribute("class", "recipe-content__ingredients-item-quantity");
+        newQuantityHtml.setAttribute("data-ingredients-qty-html", "");
+        newListItemHtml.appendChild(newQuantityHtml);
+        var newNameHtml = document.createElement("p");
+        newNameHtml.setAttribute("class", "recipe-content__ingredients-item-name");
+        newNameHtml.setAttribute("data-ingredients-name-html", "");
+        newListItemHtml.appendChild(newNameHtml);
     }
+
+    let stepNum = 0;
     //make a script that will add another input step to the preparation list
     function addPreparationStep() {
-        var preparation = document.getElementsByName("preparationParagraph")[0];
-        var newStep = document.createElement("input");
-        newStep.setAttribute("type", "text");
-        newStep.setAttribute("name", "preparationParagraph");
-        newStep.setAttribute("placeholder", "Preparation paragraph item");
-        preparation.parentNode.insertBefore(newStep, preparation.nextSibling);
+        var preparationStepInput = document.querySelectorAll("[data-preparation-step]")[stepNum];
+        console.log(preparationStepInput);
+        var newStepInput = document.createElement("input");
+        stepNum += 1;
+        newStepInput.setAttribute("type", "text");
+        newStepInput.setAttribute("data-preparation-step", `${stepNum}`);
+        newStepInput.setAttribute("name", `preparationStep-${stepNum}`);
+        newStepInput.setAttribute("placeholder", "Etape de preparation");
+        preparationStepInput.parentNode.insertBefore(newStepInput, preparationStepInput.nextSibling);
+
+        //make a script that will add another <p data-preparation-step> to the div data-preparation-container and update the value of data-preparation-step-html with the value of the input
+        var preparationParagraphContainer = document.querySelector('[data-preparation-container]');
+        var newListItemHtml = document.createElement("li");
+        newListItemHtml.setAttribute("class", "recipe-content__preparation-item");
+        newListItemHtml.setAttribute("data-preparation-step-html", "");
+        preparationParagraphContainer.appendChild(newListItemHtml);
+        var newStepHtml = document.createElement("p");
+        newStepHtml.setAttribute("class", "recipe-content__preparation-text");
+        newStepHtml.setAttribute("data-preparation-text-html", "");
+        newListItemHtml.appendChild(newStepHtml);
+
     }
     // make a script that will take the html content of data-html to a new text file and will open the text file in the browser
     var submit = document.querySelector('[data-submit]');
