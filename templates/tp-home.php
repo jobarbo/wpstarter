@@ -8,7 +8,7 @@ get_header(); ?>
 
 <section data-html class="wysiwyg-content">
     <script type="application/ld+json">
-        let json = {
+        {
             "@context": "https://schema.org",
             "@type": "Recipe",
             "author": "Jonathan Barbeau",
@@ -143,6 +143,9 @@ get_header(); ?>
 
 
 <script>
+    let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+    console.log(jsonLdScript);
+
     // PREPARATION CUISSON ET PORTIONS
     // make a script that will take the input value of the preparation time, cooking time and total servings. Then it will update the value of data-preparation-html with the value of the input
     var preparationTime = document.querySelector('input[data-preparation]');
