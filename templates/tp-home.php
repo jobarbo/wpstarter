@@ -30,19 +30,16 @@ get_header(); ?>
         <!-- Liste des ingrédients pour la recettes -->
         <div class="recipe-content__introduction">
             <!-- Titre Section Ingredients -->
-            <h2 class="recipe-content__introduction-title">Introduction</h2>
-            <div class="recipe-content__introduction-text">
+            <h2 data-intro-title-html class="recipe-content__introduction-title">Introduction</h2>
+            <div data-intro-paragraph-container class="recipe-content__introduction-text">
                 <!-- Contenu texte pour la préparation de la recette -->
                 <!-- utiliser les <p> pour chaque paragraphe -->
-                <p class="recipe-content__introduction-paragraph">Au charbon ou au gaz, les recettes de l'Entrepôt Italien célèbre l’été et la cuisine à l’extérieur avec nos astuces et nos idées de recettes tout au long de l'année !</p>
-                <p class="recipe-content__introduction-paragraph">Des brochettes savoureuses, aux décadentes côtes de bœufs, en passant par une foule de conseils pratiques et d’inspirations pour réussir vos cuissons sur le gril, il y en a pour tous les goûts!</p>
-                <p class="recipe-content__introduction-paragraph">Aujourd'hui, on vous propose un poulet enrobé à la figue, pour mixer sucré et salé ! 👌</p>
-                <p class="recipe-content__introduction-paragraph">Pas besoin d'être le maître de barbecue, on vous dit tout sans tabou ! 😁</p>
+                <p data-intro-paragraph-html class="recipe-content__introduction-paragraph"></p>
             </div>
         </div>
         <div class="recipe-content__ingredients">
             <!-- Titre Section Ingredients -->
-            <h2 class="recipe-content__ingredients-title">Ingrédients</h2>
+            <h2 data-ingredients-title-html class="recipe-content__ingredients-title">Ingrédients</h2>
             <!-- Liste des ingrédients -->
             <ul class="recipe-content__ingredients-list">
                 <li class="recipe-content__ingredients-item">
@@ -110,9 +107,9 @@ get_header(); ?>
         <!-- make a form input that will take the introduction title -->
         <input type="text" data-introduction-title name="introductionTitle" placeholder="Introduction title">
         <!-- make a form input that will take the introduction paragraph -->
-        <input type="text" data-introduction-paragraph name="introductionParagraph" placeholder="Introduction paragraph item">
+        <input type="text" data-introduction-paragraph="0" name="introductionParagraph" placeholder="Introduction paragraph item">
         <!-- make a input button that will add another paragraph to the introduction paragraph-->
-        <input type="button" value="Add another paragraph to the introduction" onclick="addIntroParagraph()">
+        <input type="button" value="Add another paragraph to the introduction" data-add-introduction-paragraph onclick="addIntroParagraph()">
 
 
         <!-- make a form input that will take the ingredients title -->
@@ -142,7 +139,7 @@ get_header(); ?>
 
 
 <script>
-    // make a script that will take the input value of the preparation time and cooking time and will update the value of data-preparation-html with the value of the input
+    // make a script that will take the input value of the preparation time, cooking time and total servings. Then it will update the value of data-preparation-html with the value of the input
     var preparationTime = document.querySelector('input[data-preparation]');
     var cookingTime = document.querySelector('input[data-cooking]');
     var servings = document.querySelector('input[data-servings]');
@@ -159,14 +156,64 @@ get_header(); ?>
         servingsHtml.innerHTML = servings.value;
     });
 
+    // make a script that will take the input value of the introduction title and introduction paragraph. Then it will update the value of data-introduction-html with the value of the input
+    var introductionTitle = document.querySelector('input[data-introduction-title]');
+    var introTitleHtml = document.querySelector('[data-intro-title-html]');
+    introductionTitle.addEventListener('input', function() {
+        introTitleHtml.innerHTML = introductionTitle.value;
+    });
+
+
+
+    var introductionParagraphInputArr = document.querySelectorAll('[data-introduction-paragraph]');
+    var introParagraphHtmlArr = document.querySelectorAll('[data-intro-paragraph-html]');
+    var addParagraphButton = document.querySelector('[data-add-introduction-paragraph]');
+    updateIntroParagraph(introductionParagraphInputArr, introParagraphHtmlArr);
+    addParagraphButton.addEventListener('click', function() {
+        introductionParagraphInputArr = document.querySelectorAll('input[data-introduction-paragraph]');
+        updateIntroParagraph(introductionParagraphInputArr, introParagraphHtmlArr);
+    });
+
+    // add an event listener that will be triggered when the DOM inside the introductionParagraphContainer is modified
+
+
+    function updateIntroParagraph(introductionParagraphInputArr, introParagraphHtmlArr) {
+        introParagraphHtmlArr = document.querySelectorAll('[data-intro-paragraph-html]');
+        introductionParagraphInputArr.forEach(function(introductionParagraphInput, index) {
+            introductionParagraphInput.addEventListener('input', function() {
+                console.log(introductionParagraphInput)
+                introParagraphHtmlArr[index].innerHTML = introductionParagraphInput.value;
+            });
+        });
+    }
+
+    // make a script that will take the input value of the ingredients title and ingredients quantity and name. Then it will update the value of data-ingredients-html with the value of the input
+    var ingredientsTitle = document.querySelector('input[data-ingredients-title]');
+    var ingredientsTitleHtml = document.querySelector('[data-ingredients-title-html]');
+    ingredientsTitle.addEventListener('input', function() {
+        ingredientsTitleHtml.innerHTML = ingredientsTitle.value;
+    });
+
+
+    let introParagraphNum = 0;
     //make a script that will add another input to the introduction paragraph
     function addIntroParagraph() {
-        var introParagraph = document.getElementsByName("introductionParagraph")[0];
+        var introParagraph = document.querySelectorAll("[data-introduction-paragraph]")[introParagraphNum];
         var newParagraph = document.createElement("input");
+        introParagraphNum += 1;
         newParagraph.setAttribute("type", "text");
-        newParagraph.setAttribute("name", "introductionParagraph");
+        newParagraph.setAttribute("name", `introductionParagraph-${introParagraphNum}`);
         newParagraph.setAttribute("placeholder", "Introduction paragraph item");
+        newParagraph.setAttribute("data-introduction-paragraph", `${introParagraphNum}`);
         introParagraph.parentNode.insertBefore(newParagraph, introParagraph.nextSibling);
+
+        //make a script that will add another <p data-introduction-paragraph> to the div data-intro-paragraph-container and update the value of data-intro-paragraph-html with the value of the input
+        var introParagraphContainer = document.querySelector('[data-intro-paragraph-container]');
+        var newParagraphHtml = document.createElement("p");
+        newParagraphHtml.setAttribute("class", "recipe-content__introduction-paragraph");
+        newParagraphHtml.setAttribute("data-intro-paragraph-html", "");
+        introParagraphContainer.appendChild(newParagraphHtml);
+
     }
     //make a script that will add another input fieldset after the previous one
     function addIngredient() {
