@@ -16,7 +16,6 @@ get_header(); ?>
             "prepTime": "PT20M",
             "totalTime": "PT30M",
             "datePublished": "2009-05-08",
-            "image": "bananabread.jpg",
             "name": "Recette de poulet",
             "recipeIngredient": [
                 "3 or 4 ripe bananas, smashed",
@@ -99,52 +98,97 @@ get_header(); ?>
     <!-- make a form that will take an html file -->
     <form class="wysiwyf" action="tp-home.php" method="post">
 
+        <h2> Contenu pour les rich snippets </h2>
+        <!-- make a form input that will take the name of the recipe -->
+        <div class="wysiwyf-input">
+            <label for="recipe-name">Nom de la recette</label>
+            <input type="text" name="recipe-name" id="recipe-name" placeholder="Nom de la recette">
+        </div>
+
+        <!-- make a form input that will take the name of the author -->
+        <input class="wysiwyf-input-text" type="text" name="authorJSON" placeholder="Nom de l'auteur (Pour les RICH SNIPPETS)">
+
+        <!-- make a form input that will take the Cooking Time for the Rich snippet jsonLD.cookTime -->
+        <input class="wysiwyf-input-text" type="text" name="cookJSON" placeholder="Temps de cuisson en minutes (Pour les RICH SNIPPETS,chiffre seulement) ">
+
+        <!-- make a form input that will take the Prep Time for the Rich snippet jsonLD.prepTime -->
+        <input class="wysiwyf-input-text" type="text" name="prepJSON" placeholder="Temps de préparation en minutes (Pour les RICH SNIPPETS,chiffre seulement) ">
+
+        <!-- make a form input that will take the total Time for the Rich snippet jsonLD.totalTime -->
+        <input class="wysiwyf-input-text" type="text" name="totalJSON" placeholder="Temps total en minutes (Pour les RICH SNIPPETS,chiffre seulement) ">
+
+        <!-- make a form input that will take the date of publication for the Rich snippet jsonLD.datePublished -->
+        <input class="wysiwyf-input-text" type="text" name="dateJSON" placeholder="Date de publication (Pour les RICH SNIPPETS,format YYYY-MM-DD) ">
+
+        <!-- make a form input that will take the ingredients for the Rich snippet jsonLD.recipeIngredient -->
+        <input class="wysiwyf-input-text" type="text" name="ingredientsJSON" placeholder="Ingrédients (Pour les RICH SNIPPETS) ">
+        <!-- make a input button that will add another steps to jsonLD.recipeIngredient[] -->
+        <input class="wysiwyf-input-button" type="button" value="Ajouter un ingrédient">
+
+        <!-- make a form input that will take the instructions for the Rich snippet jsonLD.recipeInstructions -->
+        <input class="wysiwyf-input-text" type="text" name="instructionsJSON" placeholder="Instructions (Pour les RICH SNIPPETS) ">
+
+        <!-- make a form input that will take the steps for the Rich snippet jsonLD.step  -->
+        <input class="wysiwyf-input-text" type="text" name="stepsJSON" placeholder="Etapes (Pour les RICH SNIPPETS) ">
+        <!-- make a input button that will add another steps to jsonLD.step[0].itemListElement[] -->
+        <input class="wysiwyf-input-button" type="button" value="Ajouter une étape">
+
+        <h2>Contenu de la recette</h2>
 
         <!-- make a form input that will take the preparation time -->
-        <input type="text" data-preparation name="preparationTime" placeholder="Le temps de preparation">
+        <input class="wysiwyf-input-text" type="text" data-preparation name="preparationTime" placeholder="Le temps de preparation">
         <!-- make a form input that will take the cooking time -->
-        <input type="text" data-cooking name="cookingTime" placeholder="Le temps de cuisson">
+        <input class="wysiwyf-input-text" type="text" data-cooking name="cookingTime" placeholder="Le temps de cuisson">
         <!-- make a form input that will take the numbers of servings -->
-        <input type="text" data-servings name="servings" placeholder="Le nombre de portions">
+        <input class="wysiwyf-input-text" type="text" data-servings name="servings" placeholder="Le nombre de portions">
 
 
         <!-- make a form input that will take the introduction title -->
-        <input type="text" data-introduction-title name="introductionTitle" placeholder="Le titre de la section Introduction">
+        <input class="wysiwyf-input-text" type="text" data-introduction-title name="introductionTitle" placeholder="Le titre de la section Introduction">
         <!-- make a form input that will take the introduction paragraph -->
-        <input type="text" data-introduction-paragraph="0" name="introductionParagraph" placeholder="Modifier le paragraphe">
+        <input class="wysiwyf-input-text" type="text" data-introduction-paragraph="0" name="introductionParagraph" placeholder="Modifier le paragraphe">
         <!-- make a input button that will add another paragraph to the introduction paragraph-->
-        <input type="button" value="Add another paragraph to the introduction" data-add-introduction-paragraph onclick="addIntroParagraph()">
+        <input class="wysiwyf-input-button" type="button" value="Add another paragraph to the introduction" data-add-introduction-paragraph onclick="addIntroParagraph()">
 
 
         <!-- make a form input that will take the ingredients title -->
-        <input type="text" data-ingredients-title name="ingredientsTitle" placeholder="Le titre de la section ingrédients">
+        <input class="wysiwyf-input-text" type="text" data-ingredients-title name="ingredientsTitle" placeholder="Le titre de la section ingrédients">
         <!-- make a fieldset that will group the ingredients quantity and name -->
-        <fieldset data-ingredients-fieldset="0" name="ingredients">
+        <fieldset class="wysiwyf-fieldset" data-ingredients-fieldset="0" name="ingredients">
             <!-- make a form input that will take the ingredients quantity -->
-            <input data-ingredients-qty="0" type="text" name="ingredientsQuantity" placeholder="La quantité d'ingredients">
+            <input class="wysiwyf-input-text" data-ingredients-qty="0" type="text" name="ingredientsQuantity" placeholder="La quantité d'ingredients">
             <!-- make a form input that will take the ingredients name -->
-            <input data-ingredients-name="0" type="text" name="ingredientsName" placeholder="Le nom et la description">
+            <input class="wysiwyf-input-text" data-ingredients-name="0" type="text" name="ingredientsName" placeholder="Le nom et la description">
         </fieldset>
         <!-- make a form button that will add another quantity and name to the Ingredients list-->
-        <input type="button" data-add-ingredients value="Add another ingredient" onclick="addIngredient()">
+        <input class="wysiwyf-input-button" type="button" data-add-ingredients value="Add another ingredient" onclick="addIngredient()">
 
 
         <!-- make a form input that will take the preparation title -->
-        <input type="text" data-preparation-title name="preparationTitle" placeholder="Modifier le titre de la section preparation">
+        <input class="wysiwyf-input-text" type="text" data-preparation-title name="preparationTitle" placeholder="Modifier le titre de la section preparation">
         <!-- make a form input that will take the preparation item paragraph -->
-        <input type="text" data-preparation-step='0' name="preparationStep-0" placeholder="Etape de preparation">
+        <input class="wysiwyf-input-text" type="text" data-preparation-step='0' name="preparationStep-0" placeholder="Etape de preparation">
         <!-- make a form button that will add another item to the preparation list -->
-        <input data-add-preparation-paragraph type="button" value="Add another step" onclick="addPreparationStep()">
+        <input class="wysiwyf-input-button" data-add-preparation-paragraph type="button" value="Add another step" onclick="addPreparationStep()">
 
         <!-- make a submit button -->
-        <input data-submit type="submit" value="Envoyer">
+        <input class="wysiwyf-input-submit" data-submit type="submit" value="Envoyer">
     </form>
 </section>
 
 
 <script>
     let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
-    console.log(jsonLdScript);
+    let jsonLd = JSON.parse(jsonLdScript.innerHTML);
+    console.log(jsonLd);
+
+    //Nom de l'autheur
+    // make a script that will take the input value of the author name. Then it will update the value of the author name in the jsonLd object.
+    let authorInput = document.querySelector('input[name="author"]');
+    authorInput.addEventListener('input', function() {
+        jsonLd.author = authorInput.value;
+        jsonLdScript.innerHTML = JSON.stringify(jsonLd);
+    });
 
     // PREPARATION CUISSON ET PORTIONS
     // make a script that will take the input value of the preparation time, cooking time and total servings. Then it will update the value of data-preparation-html with the value of the input
