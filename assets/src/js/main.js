@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import CalculateHeight from "./helpers/_calculateHeight";
-import Utils from "./helpers/_utils";
+import CalculateHeight from './helpers/_calculateHeight';
+import Utils from './helpers/_utils';
 
 const App = {
 	/**
@@ -9,19 +9,16 @@ const App = {
 	 */
 	init() {
 		// Swup Scripts
-		const swup = new Swup({
-			plugins: [new SwupBodyClassPlugin()],
-		});
+
 		function init() {
 			// Utils Scripts
 			const calculateHeight = new CalculateHeight();
 			const utils = new Utils();
 		}
 		init();
-		swup.on("contentReplaced", init);
 	},
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
 	App.init();
 });
