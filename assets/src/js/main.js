@@ -2,6 +2,7 @@
 
 import CalculateHeight from './helpers/_calculateHeight';
 import Utils from './helpers/_utils';
+import LocomotiveScroll from 'locomotive-scroll';
 
 const App = {
 	/**
@@ -14,6 +15,8 @@ const App = {
 			// Utils Scripts
 			const calculateHeight = new CalculateHeight();
 			const utils = new Utils();
+			const scroll = new LocomotiveScroll();
+			console.log(scroll);
 		}
 		init();
 	},
