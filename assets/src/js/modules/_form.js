@@ -15,6 +15,6 @@ export default class Form {
 	}
 
 	triggerFunction() {
-		console.log(this.placeholder);
+		//console.log(this.placeholder);
 	}
 }
