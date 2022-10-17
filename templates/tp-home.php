@@ -6,7 +6,7 @@ Template Name: Accueil
 get_header(); ?>
 <section class="styleguide" data-wolfpack-section>
     <div class="styleguide__container styleguide__container--black">
-        <h1 class="styleguide__name"> INSTYNCT Bluprint V5.0</h1>
+        <h1 class="styleguide__name"> Wordpress Starter Theme 1.0</h1>
     </div>
     <div class="styleguide__container styleguide__container--green">
         <h1 class="styleguide__intro">Style Guide Example</h1>
