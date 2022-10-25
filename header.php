@@ -25,7 +25,7 @@
 			</svg>
 		</div>
 	</div> -->
+	<div data-scroll-container class="page-wrapper">
+		<header class="header"></header>
 
-	<header class="header"></header>
-	<div class="page-wrapper">
 		<main role="main">
