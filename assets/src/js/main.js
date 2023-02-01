@@ -1,16 +1,24 @@
-import '@babel/polyfill';
+/* eslint-disable */
 
-import Scripts from './_generalScripts';
+import CalculateHeight from './helpers/_calculateHeight';
+import Utils from './helpers/_utils';
+import Scroll from './helpers/_scroll';
 
 const App = {
 	/**
 	 * App.init
 	 */
 	init() {
-		// General scripts
-		const scripts = new Scripts('Hello World');
+		// Swup Scripts
 
-		scripts.init();
+		function init() {
+			// Utils Scripts
+			const calculateHeight = new CalculateHeight();
+			const utils = new Utils();
+			const scroll = new Scroll();
+			console.log(scroll);
+		}
+		init();
 	},
 };
 

@@ -1,6 +1,5 @@
-var path = require('path');
-var webpack = require('webpack-stream').webpack;
 var TerserPlugin = require('terser-webpack-plugin');
+var ESLintPlugin = require('eslint-webpack-plugin');
 
 // utils
 var deepMerge = require('../utils/deepMerge');
@@ -18,28 +17,34 @@ var assets = require('./common').paths.assets;
 module.exports = deepMerge({
 	paths: {
 		watch: assets.src + '/js/**/*.js',
-		src: [assets.src + '/js/*.js', '!' + assets.src + '/js/**/_*'],
+		src: [
+			assets.src + '/js/*.js',
+			'!' + assets.src + '/js/**/_*'
+		],
 		dest: assets.dest + '/js',
-		clean: assets.dest + '/js/**/*.{js,map}',
+		clean: assets.dest + '/js/**/*.{js,map}'
 	},
 
 	options: {
 		webpack: {
+
 			// merged with defaults
 			// for :watch task
 			watch: {
 				mode: 'development',
 				cache: true,
 				watch: true,
-				devtool: 'eval',
+				devtool: 'eval'
 			},
+
 
 			// merged with defaults
 			// for :dev task
 			dev: {
 				mode: 'development',
-				devtool: 'eval',
+				devtool: 'eval'
 			},
+
 
 			// merged with defaults
 			// for :prod task
@@ -55,51 +60,47 @@ module.exports = deepMerge({
 								},
 							},
 							extractComments: false,
-						}),
-					],
-				},
+						})
+					]
+				}
 			},
 
 			defaults: {
 				resolve: {
-					extensions: ['.js', '.jsx'],
+					extensions: ['.js', '.jsx', '.ts', '.tsx']
 				},
 				output: {
-					chunkFilename: 'chunk-[name].js',
+					chunkFilename: 'chunk-[name].js'
 				},
 				stats: {
-					colors: true,
+					colors: true
 				},
 				module: {
 					rules: [
 						{
-							enforce: 'pre',
-							test: /\.js$/,
-							exclude: /node_modules/,
-							loader: 'eslint-loader',
-							options: {
-								emitWarning: true,
-							},
-						},
-						{
-							test: /\.js$/,
+							test: /\.m?js$/,
 							exclude: /node_modules/,
 							loader: 'babel-loader',
 							options: {
 								presets: ['@babel/preset-env'],
-								plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs'],
-							},
+								plugins: ['@babel/plugin-transform-runtime']
+							}
 						},
-					],
+						{
+							test: /swiper\.esm\.js/, // force tree shaking for swiper js
+							sideEffects: false
+						}
+					]
 				},
 				plugins: [
-					new webpack.ProvidePlugin({
-						$: 'jquery',
-						jQuery: 'jquery',
-						'window.jQuery': 'jquery',
-					}),
+					new ESLintPlugin({
+						failOnError: false
+					})
 				],
-			},
-		},
-	},
+				externals: {
+					jquery: 'jQuery'
+				}
+			}
+		}
+	}
 });

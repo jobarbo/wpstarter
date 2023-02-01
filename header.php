@@ -4,31 +4,28 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://use.typekit.net/gci6icf.css">
-
-	<!-- Check is the page is the IE template-->
-	<?php if (!is_page('internet-explorer')) { ?>
-		<script src="<?php bloginfo('template_url') ?>/assets/src/js/internet-explorer.js"></script>
-	<?php } ?>
-
+	<script>
+		history.scrollRestoration = "manual"
+	</script>
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-	<div class="page-wrapper">
-		<header class="header">
 
-			<!-- <div class="logo">
-					<a href="<?= home_url(); ?>">
-						<img src="/img/logo.png" alt="Logo">
-					</a>
-				</div> -->
 
-			<!-- <nav role="navigation" class="nav main-nav">
-					<?php wp_nav_menu(array(
-						'theme_location'  => 'main'
-					)); ?>
-				</nav> -->
-		</header>
+	<!-- 	<div class="cursor" data-cursor-container>
+		<div class="cursor__ball cursor__ball--small" data-cursor-pointer>
+			<svg height="32" width="32">
+				<circle cx="15" cy="16" r="4" stroke-width="0"></circle>
+			</svg>
+		</div>
+		<div class="cursor__ball cursor__ball--big" data-cursor-pointer>
+			<svg>
+				<circle cx="50" cy="50" r="40" stroke-width="0"></circle>
+			</svg>
+		</div>
+	</div> -->
+	<div data-scroll-container class="page-wrapper">
+		<header data-scroll-section class="header"></header>
+		<main data-scroll-container>
 
-		<main role="main">

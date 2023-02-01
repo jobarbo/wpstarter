@@ -6,9 +6,13 @@
 }
 
 /* Remove default padding */
-ul[class],
-ol[class] {
+ul,
+ol {
 	padding: 0;
+}
+
+.otgs-development-site-front-end {
+	display: none !important;
 }
 
 /* Remove default margin */
@@ -17,9 +21,11 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 li,
 figure,
 figcaption,
@@ -30,11 +36,24 @@ dd {
 }
 
 /* Set core body defaults */
+html {
+	scroll-behavior: smooth;
+}
 body {
+	overflow-x: hidden;
 	min-height: 100vh;
 	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
+	text-rendering: geometricPrecision;
 	line-height: 1.5;
+	&.noscroll {
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 1025px) {
+	html {
+		scroll-behavior: auto;
+	}
 }
 
 /* Set Sections to take all width available */
@@ -52,10 +71,6 @@ hr {
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-	list-style: none;
-}
 ul,
 ol,
 li {
@@ -72,7 +87,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img {
 	display: block;
-	max-width: 100%;
+	// max-width: 100%;
 	height: auto;
 }
 
@@ -92,7 +107,12 @@ select {
 
 a {
 	text-decoration: none;
-	color: black;
+	opacity: 1;
+	cursor: pointer !important;
+	// transition: opacity 0.3s ease-in-out;
+	&:hover {
+		// opacity: 0.5;
+	}
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

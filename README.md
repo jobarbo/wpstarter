@@ -1,4 +1,4 @@
-# Wordpress Starter Pack 2.7 [Webpack]
+# Wordpress Starter Theme 1.0[Webpack]
 
 **_Theme Wordpress_**
 

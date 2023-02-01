@@ -1,18 +1,15 @@
 </main>
 <?php
-$copyright = get_field('copyright', 'options');
+
 ?>
 
-<footer class="footer" id="contact">
-    <div class="footer__container container">
-        <div class="footer__top">
-            <div class="footer__logo"><img src="<?= $footerLogo['url'] ?>" alt="<?= $footerLogo['title'] ?>"></div>
-        </div>
+<footer data-scroll-section class="footer">
+    <div class="footer__container">
         <div class="footer__copyright">
-            <p></p>
         </div>
     </div>
 </footer>
+
 </div>
 
 <?php wp_footer(); ?>
