@@ -3,7 +3,7 @@
 
 ?>
 
-<footer data-wolfpack-section class="footer">
+<footer data-scroll-section class="footer">
     <div class="footer__container">
         <div class="footer__copyright">
         </div>
