@@ -8,11 +8,11 @@ function create_post_type() {
 
     // RETAILERS
     register_post_type(
-        'CPT Template',
+        'retraite',
         array(
             'labels' => array(
-                'name' => 'CPT Template',
-                'singular_name' => 'CPT Template',
+                'name' => 'Retraite',
+                'singular_name' => 'Retraite',
                 'add_new' => 'Ajouter',
                 'add_new_item' => 'Ajouter',
                 'edit' => 'Modifier',
@@ -33,10 +33,10 @@ function create_post_type() {
                 'editor'
             ),
             'rewrite' => array(
-                'slug' => 'cpt-template'
+                'slug' => 'retraite'
             ),
             'can_export' => true,
-            'taxonomies' => array('cpt-template', 'category'),
+            'taxonomies' => array('retraite', 'category'),
         )
     );
 }
