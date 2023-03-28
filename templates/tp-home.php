@@ -4,7 +4,7 @@ Template Name: Accueil
 */
 
 get_header(); ?>
-<section data-scroll-section class="styleguide" >
+<section data-scroll-section class="styleguide">
     <div class="styleguide__container styleguide__container--black">
         <h1 class="styleguide__name"> Wordpress Starter Theme 1.0</h1>
     </div>
