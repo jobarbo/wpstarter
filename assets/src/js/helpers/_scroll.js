@@ -1,14 +1,17 @@
-import LocomotiveScroll from 'locomotive-scroll';
+import LocomotiveScroll from "locomotive-scroll";
 
 export default class Scroll {
 	constructor() {
 		this.scroll = new LocomotiveScroll({
-			el: document.querySelector('[data-scroll-container]'),
+			el: document.querySelector("[data-scroll-container]"),
 			smooth: true,
 		});
+		this.var = "test";
 		console.log(this.scroll);
 		this.manageEvents();
 	}
 
-	manageEvents() {}
+	manageEvents() {
+		console.log(this.var);
+	}
 }
